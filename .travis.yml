@@ -1,0 +1,19 @@
+language: python
+python:
+  - "3.6"
+  - "3.7"
+dist: xenial
+
+fast_finish: true
+
+branches:
+  only:
+    - master
+
+before_install:
+  - pip install poetry
+install:
+  - poetry install
+script:
+  - poetry run invoke acceptance
+  - poetry run invoke test
